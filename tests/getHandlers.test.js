@@ -6,6 +6,7 @@ test('status code should be 200', async () => {
 	try {
 		const response = await fetch(`${config.API_URL}/api/v1/warehouses`);
 		console.log(response)
+        console.log(actualStatusCode);
 	} catch (error) {
 		console.error(error);
 
