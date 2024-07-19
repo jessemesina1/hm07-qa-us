@@ -37,7 +37,7 @@ test('Should return status code 200 with POST request', async () => {
 
 
 test('Should contain expected body with POST request', async () => {
-
+    let data; 
     try {
 
 		const response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
@@ -48,7 +48,7 @@ test('Should contain expected body with POST request', async () => {
 
 			body: JSON.stringify(requestBody)
 		});
-		const data = await response.json();
+		data = await response.json();
 		console.log(data);
 	} catch (error) {
 		console.error(error);
