@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 const config = require('../config');
 
 const requestBody = {
@@ -14,7 +13,7 @@ const requestBody = {
     ]
 };
 
-test('Verify POST request returns status code 200', async () => {
+test('Should return status code 200 with POST request', async () => {
     let actualStatus;
     try {
         const response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
@@ -37,18 +36,25 @@ test('Verify POST request returns status code 200', async () => {
 
 
 
-test('response body contains expected return for POST request', async () => {
+test('Should contain expected body with POST request', async () => {
+
     try {
+
 		const response = await fetch(`${config.API_URL}/api/v1/warehouses/check`, {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
 			},
+
 			body: JSON.stringify(requestBody)
 		});
 		const data = await response.json();
 		console.log(data);
 	} catch (error) {
 		console.error(error);
+expect(data).toBe(requestBody);
+
+
 	}
+
 });

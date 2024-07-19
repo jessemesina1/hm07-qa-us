@@ -1,9 +1,8 @@
-// eslint-disable-next-line no-undef
 const config = require('../config');
 
 const requestBody = {"price": 175}
 
-test('status code should be 200', async () => {
+test('Should return status code 200 with PUT request', async () => {
     let actualStatusCode;
 	try {
 		const response = await fetch(`${config.API_URL}/api/v1/products/7`);
@@ -12,12 +11,14 @@ test('status code should be 200', async () => {
 	} catch (error) {
 		console.error(error);
 
+        expect(actualStatusCode).toBe(200);
+
 	}
-	//expect(actualStatus).toBe(200);
+	
 });
 
 
-test('PUT method updates price of product', async () => {
+test('Should update product price with PUT method', async () => {
     try {
         const response = await fetch(`${config.API_URL}/api/v1/products/7`, {
             method: 'PUT',
