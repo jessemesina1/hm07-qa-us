@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-undef
+
 const config = require('../config');
 
 test('Should verify DELETE request returns 200 OK', async () => {
